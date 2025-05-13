@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package user;
+
+option go_package = "github.com/yourusername/forum-project/proto/user";
+
+service UserService {
+    rpc Register (RegisterRequest) returns (RegisterResponse);
+    rpc GetUser (GetUserRequest) returns (GetUserResponse);
+}
+
+message RegisterRequest {
+    string username = 1;
+    string email = 2;
+    string password = 3;
+}
+
+message RegisterResponse {
+    int64 id = 1;
+    string username = 2;
+    string email = 3;
+    string role = 4;
+}
+
+message GetUserRequest {
+    string username = 1;
+}
+
+message GetUserResponse {
+    int64 id = 1;
+    string username = 2;
+    string email = 3;
+    string role = 4;
+    string status = 5;
+}
